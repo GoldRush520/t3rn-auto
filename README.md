@@ -9,7 +9,9 @@ T3RN自动SWAP脚本，据说单个地址SWAP上限奖励是2万个BRN。
 参数配置
 
    PRIVATE_KEY = "0x1234567890"  #填写私匙
+   
    AMOUNT_ETH = 0.3  # 每次跨链金额（单位：ETH）
+   
    TIMES = 1000  # 互跨来回次数
    
 ### 1 op_uni_03.py OP<->UNI 互SWAP刷奖励
