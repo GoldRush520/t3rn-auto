@@ -6,7 +6,7 @@ T3RN自动SWAP脚本，据说单个地址SWAP上限奖励是2万个BRN。
 
     pip install --upgrade web3
 
-参数配置
+参数配置：只能修改私匙和互跨次数，跨链金额不能更改。需要更改的请修改代码中对应的input data
 
    PRIVATE_KEY = "0x1234567890"  #填写私匙
    
