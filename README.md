@@ -3,7 +3,7 @@
 
 另一个问题：uni-op跨链后到帐时间不确定，测试过可能在1-2小时之间。如果要循环运行刷币，需要留够间隔时间等eth回帐。
 
-说明：T3RN自动SWAP脚本，据说单个地址SWAP上限奖励是2万个BRN。注意：目前官方已提高到最低0.5ETH跨链才有奖励，请运行op_uni_10.py这个脚本，跨链数额为1ETH
+说明：T3RN自动SWAP脚本，据说单个地址SWAP上限奖励是2万个BRN。注意：目前官方已提高到最低1ETH跨链才有奖励，请运行op_uni_10.py这个脚本，跨链数额为1ETH
 
 当前支持op和uni互刷，刷之前检查各链上是否有对应的测试eth。
 
@@ -20,7 +20,7 @@
    
    TIMES = 1000  # 互跨来回次数
    
-### 1 op_uni_10.py OP<->UNI 互SWAP刷奖励 注意：官方已提高到最低0.5ETH跨链才有奖励。本脚本默认1ETH
+### 1 op_uni_10.py OP<->UNI 互SWAP刷奖励 注意：官方已提高到最低1ETH跨链才有奖励。本脚本默认1ETH
     python3 op_uni_10.py
 运行后如下截图
 ![image](https://github.com/user-attachments/assets/b84918fa-db30-41d1-b53c-e49541689c61)
