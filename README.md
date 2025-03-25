@@ -5,22 +5,22 @@
 
 说明：T3RN自动SWAP脚本，据说单个地址SWAP上限奖励是2万个BRN。注意：目前官方已提高到最低0.5ETH跨链才有奖励，请运行op_uni_10.py这个脚本，跨链数额为1ETH
 
-当前支持op和uni互刷，op和arb互刷。刷之前检查各链上是否有对应的测试eth。
+当前支持op和uni互刷，刷之前检查各链上是否有对应的测试eth。
 
 ## 安装支持
     pip install web3 eth_account
 
     pip install --upgrade web3
 
-参数配置：只能修改私匙和互跨次数，跨链金额不能更改。需要更改的请修改代码中对应的input data
+参数配置：只能修改私匙和互跨次数，跨链金额不能更改。需要更改的请修改代码中对应的input data。不懂代码请不要修改每次跨链的1.只修改私匙和次数。
 
    PRIVATE_KEY = "0x1234567890"  #填写私匙
    
-   AMOUNT_ETH = 0.3  # 每次跨链金额（单位：ETH）
+   AMOUNT_ETH = 1  # 每次跨链金额（单位：ETH）
    
    TIMES = 1000  # 互跨来回次数
    
-### 1 op_uni_10.py OP<->UNI 互SWAP刷奖励 注意：目前官方已提高到最低0.5ETH跨链才有奖励
+### 1 op_uni_10.py OP<->UNI 互SWAP刷奖励 注意：目前官方已提高到最低0.5ETH跨链才有奖励。本脚本默认为1ETH
     python3 op_uni_10.py
 运行后如下截图
 ![image](https://github.com/user-attachments/assets/b84918fa-db30-41d1-b53c-e49541689c61)
