@@ -20,7 +20,7 @@
    
    TIMES = 1000  # 互跨来回次数
    
-### 1 op_uni_10.py OP<->UNI 互SWAP刷奖励 注意：目前官方已提高到最低0.5ETH跨链才有奖励。本脚本默认为1ETH
+### 1 op_uni_10.py OP<->UNI 互SWAP刷奖励 注意：官方已提高到最低0.5ETH跨链才有奖励。本脚本默认1ETH
     python3 op_uni_10.py
 运行后如下截图
 ![image](https://github.com/user-attachments/assets/b84918fa-db30-41d1-b53c-e49541689c61)
