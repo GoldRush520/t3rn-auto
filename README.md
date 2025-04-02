@@ -1,5 +1,5 @@
 # T3RN一键盘节点
-   curl -O https://raw.githubusercontent.com/8280998/t3rn/refs/heads/main/t3_node.sh && chmod +x t3_node.sh  && ./t3_node.sh
+    curl -O https://raw.githubusercontent.com/8280998/t3rn/refs/heads/main/t3_node.sh && chmod +x t3_node.sh  && ./t3_node.sh
 
 
 # t3rn  最低ETH在10之前，都可以用op_uni_100.py
