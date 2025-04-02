@@ -11,9 +11,9 @@ rm -f executor-linux-*.tar.gz
 curl -s https://api.github.com/repos/t3rn/executor-release/releases/latest | \
 grep -Po '"tag_name": "\K.*?(?=")' | \
 xargs -I {} wget https://github.com/t3rn/executor-release/releases/download/{}/executor-linux-{}.tar.gz
-sleep 2
-tar -xzf executor-linux-*.tar.gz
 pkill -f executor
+sleep 5
+tar -xzf executor-linux-*.tar.gz
 export ENVIRONMENT=testnet
 export LOG_LEVEL=debug
 export LOG_PRETTY=false
@@ -31,6 +31,6 @@ export RPC_ENDPOINTS='{
     "blst": ["http://testnet-rpc.blastblockchain.com"],
     "unit": ["https://unichain-sepolia.drpc.org", "https://sepolia.unichain.org"]
 }'
-sleep 5
+sleep 2
 nohup /root/executor/executor/bin/executor > executor.log 2>&1 &
 echo 安装并启动，查看日志命令是： tail -f executor.log
