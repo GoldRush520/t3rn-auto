@@ -1,4 +1,10 @@
 # 1. T3RN一键盘节点
+说明：这个是T3rn的一键脚本，注意如下：
+
+这个脚本适合于root用户，其他用户自己修改路径或设置成变量，懒得改了
+
+查看日志命令是： tail -f executor.log
+
     curl -O https://raw.githubusercontent.com/8280998/t3rn/refs/heads/main/t3_node.sh && chmod +x t3_node.sh  && ./t3_node.sh
 
 
