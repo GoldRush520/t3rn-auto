@@ -33,4 +33,4 @@ export RPC_ENDPOINTS='{
 }'
 sleep 2
 nohup /root/executor/executor/bin/executor > executor.log 2>&1 &
-echo 安装并启动，查看日志命令是： tail -f /root/executor/executor/bin/executor.log
+echo 安装并启动，查看日志命令是： tail -f executor.log
