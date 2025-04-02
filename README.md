@@ -1,8 +1,8 @@
-# T3RN一键盘节点
+# 1. T3RN一键盘节点
     curl -O https://raw.githubusercontent.com/8280998/t3rn/refs/heads/main/t3_node.sh && chmod +x t3_node.sh  && ./t3_node.sh
 
 
-# t3rn  最低ETH在10之前，都可以用op_uni_100.py
+# 2. t3rn跨链脚本  最低ETH在10之前，都可以用op_uni_100.py
 uni-op跨链后到帐时间不确定。如果要循环运行刷币，需要留够间隔时间等eth回帐。
 
 说明：T3RN自动SWAP脚本，单个地址SWAP上限奖励是2万个BRN。注意：目前官方已提高到最低5ETH跨链才有奖励，请运行op_uni_50.py这个脚本，跨链数额为5ETH
