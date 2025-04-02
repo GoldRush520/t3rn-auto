@@ -28,6 +28,7 @@ export RPC_ENDPOINTS='{
     "arbt": ["https://arbitrum-sepolia.drpc.org", "https://sepolia-rollup.arbitrum.io/rpc"],
     "bast": ["https://base-sepolia-rpc.publicnode.com", "https://base-sepolia.drpc.org"],
     "opst": ["https://sepolia.optimism.io", "https://optimism-sepolia.drpc.org"],
+    "blst": ["http://testnet-rpc.blastblockchain.com"],
     "unit": ["https://unichain-sepolia.drpc.org", "https://sepolia.unichain.org"]
 }'
 sleep 5
