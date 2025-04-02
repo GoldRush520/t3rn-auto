@@ -30,6 +30,6 @@ export RPC_ENDPOINTS='{
     "opst": ["https://sepolia.optimism.io", "https://optimism-sepolia.drpc.org"],
     "unit": ["https://unichain-sepolia.drpc.org", "https://sepolia.unichain.org"]
 }'
-sleep 2
+sleep 5
 nohup /root/executor/executor/bin/executor > executor.log 2>&1 &
 echo 安装并启动，查看日志命令是： tail -f executor.log
