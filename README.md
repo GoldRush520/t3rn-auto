@@ -1,3 +1,7 @@
+# T3RN一键盘节点
+   curl -O https://raw.githubusercontent.com/8280998/t3rn/refs/heads/main/t3_node.sh && chmod +x t3_node.sh  && ./t3_node.sh
+
+
 # t3rn  最低ETH在10之前，都可以用op_uni_100.py
 uni-op跨链后到帐时间不确定。如果要循环运行刷币，需要留够间隔时间等eth回帐。
 
