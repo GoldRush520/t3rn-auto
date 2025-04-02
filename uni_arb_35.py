@@ -106,17 +106,11 @@ def main():
                 
                 # ARB -> UNI
                 bridge_arb_to_uni(AMOUNT_ETH, account)
-                
-                # 在不同账户之间添加 1-2 秒随机间隔（最后一个账户除外） 此功能已注释掉，可以不用
-                #if idx < len(accounts) - 1:
-                #    delay = random.uniform(1, 2)
-                #    print(f"账户 {account.address} 跨链完成，等待 {delay:.2f} 秒后处理下一个账户...")
-                #    time.sleep(delay)
-        
+   
             print(f"第 {i+1} 次互跨完成")
         
         print(f"\n第 {round_count} 轮跨链操作完成，等待10分钟后开始下一轮...")
-        time.sleep(10 * 60)  # 等待 10 分钟
+        time.sleep(10 * 60)  # 等待 10 分钟，循环一轮时间可自定义修改
 
 if __name__ == "__main__":
     main()
