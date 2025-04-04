@@ -19,6 +19,8 @@ OP测试网经常卡链上，现在弃用OP的脚本，改为uni--arb互跨
 
 其他脚本不再更新，现在只针对uni-arb做更新
 
+如果需要arb到uni单边跨链，把uni_arb_35.py的代码加个#，这样：# bridge_uni_to_arb(AMOUNT_ETH, account)
+
 ## 安装支持
     pip install web3 eth_account
 
