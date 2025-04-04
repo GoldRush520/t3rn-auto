@@ -10,6 +10,11 @@
 
 # 2. t3rn跨链脚本 
 ## 因为op跨链经常卡链上，现更新到uni-arb互跨
+
+2025-04-04 新增BASE到UNI的单边跨链。需要把私匙存放在address.txt,一行一个
+
+    python3 basetouni.py
+    
 OP测试网经常卡链上，现在弃用OP的脚本，改为uni--arb互跨
 
 其他脚本不再更新，现在只针对uni-arb做更新
