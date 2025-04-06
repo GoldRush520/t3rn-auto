@@ -39,7 +39,7 @@ def bridge_uni_to_arb(amount_eth, account):
             'value': amount_wei,
             'nonce': nonce,
             'gas': 400000,
-            'gasPrice': w3_uni.to_wei(1.6, 'gwei'),
+            'gasPrice': w3_uni.to_wei(0.16, 'gwei'), #降低gas，之前设置太高
             'chainId': 1301,
             'data': data
         }
