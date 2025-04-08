@@ -9,9 +9,6 @@
 
 2024-04-08 增加monad网络
 
-    curl -O https://raw.githubusercontent.com/8280998/t3rn/refs/heads/main/update.sh && chmod +x update.sh  && ./update.sh
-
-update.sh 个人更新用，免输入key更新
 
 ## 1.1 一些常用节点查询
 
