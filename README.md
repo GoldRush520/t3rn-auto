@@ -13,6 +13,11 @@
 
 update.sh 个人更新用，免输入key更新
 
+## 1.1 一些常用节点查询
+
+检查节点版本
+    grep "Version:" /root/executor/executor/bin/executor.log
+
 # 2. t3rn跨链脚本 
 ## 因为op跨链经常卡链上，现更新到uni-arb互跨
 
