@@ -9,6 +9,10 @@
 
 2024-04-08 增加monad网络
 
+    curl -O https://raw.githubusercontent.com/8280998/t3rn/refs/heads/main/update.sh && chmod +x update.sh  && ./update.sh
+
+update.sh 个人更新用，免输入key更新
+
 # 2. t3rn跨链脚本 
 ## 因为op跨链经常卡链上，现更新到uni-arb互跨
 
