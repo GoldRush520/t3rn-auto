@@ -7,6 +7,7 @@
 
     curl -O https://raw.githubusercontent.com/8280998/t3rn/refs/heads/main/t3_node.sh && chmod +x t3_node.sh  && ./t3_node.sh
 
+2024-04-08 增加monad网络
 
 # 2. t3rn跨链脚本 
 ## 因为op跨链经常卡链上，现更新到uni-arb互跨
