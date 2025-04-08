@@ -15,9 +15,13 @@ update.sh 个人更新用，免输入key更新
 
 ## 1.1 一些常用节点查询
 
-检查节点版本
+1.11 检查节点版本，返回类似信息：{"level":"info","time":1744116221892,"environment":"testnet","msg":"💿 Version: v0.62.0"}
 
-    grep "Version:" /root/executor/executor/bin/executor.log
+    grep "Version:" executor.log
+
+1.12 检查奖励信息，返回类似信息：Total reward: 0 #使用一键节点安装的话，每次更新后都会对日志进行复盖，之前的奖励信息也无法查询。这个命令作用不大
+
+     grep '"wallet":"0x123456"' executor.log| awk -F'reward":' '{sub(/,.*/,"",$2); sum += $2} END {print "Total reward: " sum}'
 
 # 2. t3rn跨链脚本 
 ## 因为op跨链经常卡链上，现更新到uni-arb互跨
