@@ -30,6 +30,7 @@ export RPC_ENDPOINTS='{
     "opst": ["https://sepolia.optimism.io", "https://optimism-sepolia.drpc.org"],
     "blst": ["http://testnet-rpc.blastblockchain.com"],
     "mont": ["https://testnet-rpc.monad.xyz"],
+    "seit": ["https://evm-rpc-testnet.sei-apis.com"],
     "unit": ["https://unichain-sepolia.drpc.org", "https://sepolia.unichain.org"]
 }'
 sleep 2
