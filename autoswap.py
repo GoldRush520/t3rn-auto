@@ -73,7 +73,7 @@ def bridge(from_chain, to_chain, amount_eth, account):
     try:
         w3 = w3_instances[from_chain]
         amount_wei = w3.to_wei(amount_eth, 'ether')
-        nonce = w3.eth.get_transaction_count(account.address)
+        nonce = w3.eth.get_transaction_count(account.address, 'pending')
         data = generate_input_data(from_chain, to_chain, account.address, amount_wei)
         
         tx = {
