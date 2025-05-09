@@ -20,18 +20,10 @@
 
      grep '"wallet":"0x123456"' executor.log| awk -F'reward":' '{sub(/,.*/,"",$2); sum += $2} END {print "Total reward: " sum}'
 
-# 2. t3rn跨链脚本 
-## 因为op跨链经常卡链上，现更新到uni-arb互跨
+# 2. t3rn跨链脚本 autoswap.py，以后只针对此脚本做更新，其他不再更新。
+## 因为各条链经常卡住，于2025-05-09，新写的一个脚本，可以自动调节各链ETH从最多往最少跨
 
-2025-04-04 新增BASE到UNI的单边跨链。需要把私匙存放在address.txt,一行一个
-
-    python3 basetouni.py
-    
-OP测试网经常卡链上，现在弃用OP的脚本，改为uni--arb互跨
-
-其他脚本不再更新，现在只针对uni-arb做更新
-
-如果需要arb到uni单边跨链，把uni_arb_35.py的代码加个#，这样：# bridge_uni_to_arb(AMOUNT_ETH, account)
+新写的脚本解决ETH堆积到一条链的问题，自动平衡各链资产，适合做节点同时又SWAP的地址
 
 ## 安装支持
     pip install web3 eth_account
@@ -40,25 +32,27 @@ OP测试网经常卡链上，现在弃用OP的脚本，改为uni--arb互跨
 
 参数配置：只能修改私匙和互跨次数，跨链金额不能更改。
 
-不懂代码请不要修改每次跨链的3.5.只修改私匙和次数。
+# 自定义参数,建议使用脚本默认参数，因为自动无限循环跨链
 
-默认循环一轮为10分钟，可以自定义为其他时间
+AMOUNT_ETH = 2.5        # 固定跨链数量跟模板数据强关联，不可修改
 
-支持批量多号刷SWAP，把私匙添加到address.txt,一行一个
+TIMES = 10                 # 跨链次数
 
-
-   PRIVATE_KEY = "0x1234567890"  #填写私匙
+CROSS_PER_ADDRESS = 3     # 每次跨链尝试次数，因为经常失败建议设置为2-5次
    
-   AMOUNT_ETH = 3.5  # 每次跨链金额（单位：ETH）
-   
-   TIMES = 50  # 互跨来回次数
+### 1 ETH自动调节SWAP脚本 
 
-   time.sleep(10 * 60)  # 等待 10 分钟，循环时间可修改
-   
-### 1 uni_arb_35.py ARB <-> UNI 互SWAP刷奖励 
-    python3 uni_arb_35.py
-运行后如下截图
-![image](https://github.com/user-attachments/assets/b84918fa-db30-41d1-b53c-e49541689c61)
+显示运行时：
+
+    python3 autoswap.py
+
+后台运行：
+
+    nohup python3 autoswap.py > autoswap.log 2>&1 &
+    
+更新后的自动调节脚本运行后如下截图
+![image](https://github.com/user-attachments/assets/ee635c53-75c5-48f0-8c1d-dba9b96de815)
+
 
 
 
