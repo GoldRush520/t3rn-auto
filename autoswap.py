@@ -2,6 +2,9 @@ from web3 import Web3
 import time
 import random
 
+# 注意安全，自行阅读代码或运行前先把代码交给chatgpt/grok等ai检查。
+# 运行前请自行评估风险，否则造成任何损失与本脚本无关
+
 # 自定义参数
 AMOUNT_ETH = 2.5        # 固定跨链数量跟模板数据强关联，不可修改
 TIMES = 10                 # 跨链次数
