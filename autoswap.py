@@ -90,7 +90,7 @@ def bridge(from_chain, to_chain, amount_eth, account):
         signed_tx = w3.eth.account.sign_transaction(tx, account.key)
         tx_hash = w3.eth.send_raw_transaction(signed_tx.raw_transaction)
         print(f"{from_chain.upper()} -> {to_chain.upper()} 跨链发送成功, hash: {w3.to_hex(tx_hash)}")
-        tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash, timeout=8)
+        tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash, timeout=10)
         print(f"链上已确认, 区块号: {tx_receipt.blockNumber}")
         return True
     except Exception as e:
