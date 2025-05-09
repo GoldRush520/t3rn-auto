@@ -82,7 +82,7 @@ def bridge(from_chain, to_chain, amount_eth, account):
             'value': amount_wei,
             'nonce': nonce,
             'gas': 400000,
-            'gasPrice': w3.to_wei(0.1, 'gwei'),
+            'gasPrice': w3.to_wei(0.5, 'gwei'),
             'chainId': CHAINS[from_chain]['chain_id'],
             'data': data
         }
