@@ -1,6 +1,9 @@
 from web3 import Web3
 import time
 import random
+import sys
+
+sys.stdout = open(sys.stdout.fileno(), 'w', buffering=1)
 
 # 注意安全，自行阅读代码或运行前先把代码交给chatgpt/grok等ai检查。
 # 运行前请自行评估风险，否则造成任何损失与本脚本无关
@@ -138,7 +141,7 @@ def main():
                     print(f"\n处理地址 {account.address}")
                     # 每个地址执行 CROSS_PER_ADDRESS 次跨链
                     for j in range(CROSS_PER_ADDRESS):
-                        print(f"第 {j+1} 次跨链")
+                        print(f"第 {i+1} 轮，第 {j+1} 次跨链")
                         check_and_balance_chains(account)
                 except Exception as e:
                     print(f"处理地址 {account.address} 时出错: {e}")
