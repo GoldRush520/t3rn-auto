@@ -5,18 +5,18 @@ import sys
 
 sys.stdout = open(sys.stdout.fileno(), 'w', buffering=1)
 
-# 注意安全，自行阅读代码或运行前先把代码交给chatgpt/grok等ai检查。
+# 注意安全，自行阅读代码或运行前先把代码交给 chatgpt/grok 等 ai 检查。
 # 运行前请自行评估风险，否则造成任何损失与本脚本无关
 
 # 自定义参数
 AMOUNT_ETH = 2.5        # 固定跨链数量跟模板数据强关联，不可修改
 TIMES = 10                 # 跨链次数
-CROSS_PER_ADDRESS = 3     # 每次跨链尝试次数，因为经常失败建议设置为2-5次
+CROSS_PER_ADDRESS = 3     # 每次跨链尝试次数，因为经常失败建议设置为 2-5 次
 
-# RPC参数
+# RPC 参数
 CHAINS = {
     'uni': {
-        'rpc': 'https://unichain-sepolia-rpc.publicnode.com',
+        'rpc': 'https://unichain-sepolia.infura.io/v3/a365ef25b30343e292d19b610eabc6ea',
         'chain_id': 1301,
         'contract': '0x1cEAb5967E5f078Fa0FEC3DFfD0394Af1fEeBCC9'
     },
@@ -53,7 +53,7 @@ BASE_DATA_TEMPLATE = (
 # 初始化
 w3_instances = {chain: Web3(Web3.HTTPProvider(config['rpc'])) for chain, config in CHAINS.items()}
 
-# 检测RPC连接
+# 检测 RPC 连接
 for chain, w3 in w3_instances.items():
     if not w3.is_connected():
         raise Exception(f"连接到 {chain} 失败")
@@ -85,25 +85,25 @@ def bridge(from_chain, to_chain, amount_eth, account):
             'value': amount_wei,
             'nonce': nonce,
             'gas': 400000,
-            'gasPrice': w3.to_wei(0.5, 'gwei'),
+            'gasPrice': w3.to_wei(1, 'gwei'),
             'chainId': CHAINS[from_chain]['chain_id'],
             'data': data
         }
-        print(f"{from_chain.upper()} -> {to_chain.upper()}: 从 {account.address} 发出 {amount_eth} 个ETH")
+        print(f"{from_chain.upper()} -> {to_chain.upper()}: 从 {account.address} 发出 {amount_eth} 个 ETH")
         signed_tx = w3.eth.account.sign_transaction(tx, account.key)
         tx_hash = w3.eth.send_raw_transaction(signed_tx.raw_transaction)
-        print(f"{from_chain.upper()} -> {to_chain.upper()} 跨链发送成功, hash: {w3.to_hex(tx_hash)}")
+        print(f"{from_chain.upper()} -> {to_chain.upper()} 跨链发送成功，hash: {w3.to_hex(tx_hash)}")
         tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash, timeout=10)
-        print(f"链上已确认, 区块号: {tx_receipt.blockNumber}")
+        print(f"链上已确认，区块号：{tx_receipt.blockNumber}")
         return True
     except Exception as e:
-        print(f"{from_chain.upper()} -> {to_chain.upper()} 跨链失败: {e}")
+        print(f"{from_chain.upper()} -> {to_chain.upper()} 跨链失败：{e}")
         print(f"跳过失败的跨链，继续处理下一个操作...")
         return False
 
 def check_and_balance_chains(account):
     balances = {chain: get_balance(account, chain) for chain in CHAINS}
-    print(f"ETH资产列表: {balances}")
+    print(f"ETH 资产列表：{balances}")
     
     # 找到余额最高和最低的链
     max_chain = max(balances.items(), key=lambda x: x[1])[0]
@@ -111,14 +111,14 @@ def check_and_balance_chains(account):
     
     # 使用固定金额
     amount_eth = AMOUNT_ETH
-    print(f"固定跨链金额: {amount_eth} ETH")
+    print(f"固定跨链金额：{amount_eth} ETH")
     
     # 如果最高余额链有足够 ETH，则跨链到最低余额链
     if balances[max_chain] >= amount_eth and max_chain != min_chain:
-        print(f"跨链操作: 从 {max_chain} 向 {min_chain} 转移 {amount_eth} ETH")
+        print(f"跨链操作：从 {max_chain} 向 {min_chain} 转移 {amount_eth} ETH")
         bridge(max_chain, min_chain, amount_eth, account)
     else:
-        print(f"跳过跨链: {max_chain} 余额不足（{balances[max_chain]:.2f} ETH）或与 {min_chain} 相同")
+        print(f"跳过跨链：{max_chain} 余额不足（{balances[max_chain]:.2f} ETH）或与 {min_chain} 相同")
     
     return balances
 
@@ -144,12 +144,12 @@ def main():
                         print(f"第 {i+1} 轮，第 {j+1} 次跨链")
                         check_and_balance_chains(account)
                 except Exception as e:
-                    print(f"处理地址 {account.address} 时出错: {e}")
+                    print(f"处理地址 {account.address} 时出错：{e}")
                     print(f"跳过地址 {account.address}，继续处理下一个地址...")
                     continue
         
-        print(f"\n第 {round_count} 轮结束, 等待1分钟后开始下一轮...")
-        time.sleep(1 * 60)
+        print(f"\n第 {round_count} 轮结束，等待 1 分钟后开始下一轮...")
+        time.sleep(5 * 60)
 
 if __name__ == "__main__":
     main()
